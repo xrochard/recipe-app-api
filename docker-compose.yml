@@ -1,0 +1,16 @@
+version: "3.8"  # optional since v1.27.0
+
+services: 
+    app:    # the name of our app
+        build: 
+            context: .  # the context of the build of the app is the present directory
+        ports: 
+            - "8000:8000"   # maps port 8000 on the host to 8000 on the image
+        volumes: 
+            - ./app:/app    # maps the ./app volume of the host to the appp volume of the imag
+                            # to have a constantly shared volume, not only at DOcker startup
+        # >  indicates that the command runs in fact on the next line
+        # sh is for shell
+        # runserver is the Django command to run the server on any IP address, because 0.0.0.0, with port 8000
+        command: >          
+            sh -c "python manage.py runserver 0.0.0.0:8000"
