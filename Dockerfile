@@ -15,7 +15,7 @@ WORKDIR /app
 COPY ./app /app
 
 # create a user to run the appp; -D means this user can only run the app, he doesn't have a home directory and cannot log in
-# this user called "daemon" is called "user" in the course
-RUN adduser -D daemon
+# this user is called "user" in the course
+RUN adduser -D user
 # switch Docker to user and avoid running the app as root
-USER daemon
+USER user
