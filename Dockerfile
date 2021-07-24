@@ -14,7 +14,8 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./app /app
 
-# create a user to run the appp; -D means this user can only run the app, he doesn't have a home directoory and cannot log in
-RUN adduser -D user
-# switch Docker to user (the name of the user) and avoid running the app as root
-USER user
+# create a user to run the appp; -D means this user can only run the app, he doesn't have a home directory and cannot log in
+# this user called "daemon" is called "user" in the course
+RUN adduser -D daemon
+# switch Docker to user and avoid running the app as root
+USER daemon
