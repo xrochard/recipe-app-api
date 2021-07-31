@@ -14,3 +14,6 @@ services:
         # runserver is the Django command to run the server on any IP address, because 0.0.0.0, with port 8000
         command: >          
             sh -c "python manage.py runserver 0.0.0.0:8000"
+        
+        # alternate command
+        # command: python manage.py runserver 0.0.0.0:8000
